@@ -1,5 +1,5 @@
 <?php
-
+ 
 interface CarService
 {
     public function getCost();
@@ -7,8 +7,7 @@ interface CarService
     public function getDescription();
 }
 
-
-class BasicInspection  implements CarService
+class BasicInspection implements CarService 
 {
 
     public function getCost()   
@@ -16,20 +15,19 @@ class BasicInspection  implements CarService
         return 25;
     }
 
-    public function getDescription()
-    {
-        return 'Basic Inspection';
+    public function getDescription(){
+        return 'basic inspection';
     }
-
 }
 
-
-class OilChange implements CarService
-{   
-
+//decorators for additional services
+class OilChange implements CarService{
+    //declare car service as protected property
     protected $carService;
 
-    public function __construct(CarService $carService){
+    //inject the CarService instance in the OilChange at runtime;
+   function __construct(CarService $carService)
+    {
         $this->carService = $carService;
     }
 
@@ -38,19 +36,17 @@ class OilChange implements CarService
         return 29 + $this->carService->getCost();
     }
 
-    public function getDescription()
-    {
-        return $this->carService->getDescription() . ' and Oil Change';
+    public function getDescription(){
+        return $this->carService->getDescription() .  ' and Oil Change';
     }
 }
 
-
-class TyreRotation implements CarService
-{   
-
+class TyreRotation implements CarService{
     protected $carService;
 
-    public function __construct(CarService $carService){
+    //inject the CarService instance in the OilChange at runtime;
+   function __construct(CarService $carService)
+    {
         $this->carService = $carService;
     }
 
@@ -59,37 +55,19 @@ class TyreRotation implements CarService
         return 15 + $this->carService->getCost();
     }
 
-    public function getDescription()
-    {
-        return $this->carService->getDescription() . ' and Tyre Rotation';
+    public function getDescription(){
+        return $this->carService->getDescription() .  ' and Tyre Rotation';
     }
 }
 
-// echo (new TyreRotation(new OilChange(new BasicInspection())))->getCost();
+$service = new BasicInspection();//echoes 25
 
-//echo (new TyreRotation(new BasicInspection()))->getCost();
 
-$service = new OilChange(new TyreRotation(new BasicInspection));
+//decorate with OilChange
+$service = new OilChange(new BasicInspection()); //echoes 54
 
+
+$service = new OilChange(new TyreRotation(new BasicInspection())); //40
+
+// echo $service->getCost();
 echo $service->getDescription();
-// class BasicInspectionAndOilChange {
-
-//     public function getCost()
-//     {
-//         return 19 + 19;
-//     }
-
-// }
-
-
-// class BasicInspectionAndOilChangeAndTireRotation {
-
-//     public function getCost()
-//     {
-//         return 19 + 19 + 10;
-//     }
-
-// }
-
-//get cost
- 
