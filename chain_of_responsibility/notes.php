@@ -132,5 +132,9 @@ $locks->check($status);
 
 
 
-//NOTE the 'chain' will run till the first exception and then it will stop;
+/*
+    NOTE the 'chain' will run till the first exception and then it will stop;
+    each 'ring' in the chain either handles the request (in this case throws an error) 
+    or it defers it to the next object in the chain
+*/
 
