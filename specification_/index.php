@@ -1,4 +1,7 @@
-<?php
+<?php 
+
+namespace Acme;
+require "vendor/autoload.php";
 /*
     we take the rule that decides whether a customer is or not a gold customer, and we 
     transform that logic into a class that we can use anywhere
@@ -13,4 +16,4 @@ class CustomerIsGold
 
 $spec = new CustomerIsGold;
 
-$spec->isSatisfiedBy(new Customer);//returns true or false
+$spec->isSatisfiedBy(new Customer('gold'));//returns true or false

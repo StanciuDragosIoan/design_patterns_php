@@ -1,4 +1,10 @@
 <?php
+
+/*
+    ### The CHAIN OF RESPONSABILITY Pattern ###
+*/
+
+
 /*
     The chain of responsibility pattern gives us the ability to chain object calls
     while giving each of the objects the ability to either end the execution and handle

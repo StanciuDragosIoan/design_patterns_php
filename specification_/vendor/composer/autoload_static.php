@@ -65,9 +65,9 @@ class ComposerStaticInitbfc2230f937ac98dfa5401a5e97457cb
     );
 
     public static $classMap = array (
-        'Customer' => __DIR__ . '/../..' . '/src/Customer.php',
-        'CustomerIsGold' => __DIR__ . '/../..' . '/src/CustomerIsGold.php',
-        'CustomersRepository' => __DIR__ . '/../..' . '/src/CustomersRepository.php',
+        'Acme\\Customer' => __DIR__ . '/../..' . '/src/Customer.php',
+        'Acme\\CustomerIsGold' => __DIR__ . '/../..' . '/src/CustomerIsGold.php',
+        'Acme\\CustomersRepository' => __DIR__ . '/../..' . '/src/CustomersRepository.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',
         'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/AssertionFailedError.php',

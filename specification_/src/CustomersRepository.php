@@ -1,4 +1,5 @@
-<?php
+<?php namespace Acme;
+
     class CustomersRepository
     {   
         protected $customers;
